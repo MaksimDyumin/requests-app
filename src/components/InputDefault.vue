@@ -1,12 +1,18 @@
 <template>
   <div ref="field_container" class="field-container">
-    <label>{{ labelText }}</label>
+    <label class="input-label-auth" :style="labelStyles">{{ labelText }}</label>
     <div class="input-container">
       <v-icon ref="icon_start_element" class="icon" :icon="iconNameStart"></v-icon>
-      <input :value="value" @input="emitValue($event.target.value)" :placeholder="placeholder" v-if="type === 'tel'" v-mask="'+7 (###) ###-####'" id="telNum" type="text" :disabled="disabled" />
-      <input :value="value" @input="emitValue($event.target.value)" :placeholder="placeholder" v-if="type === 'pass'" id="password" type="password" :disabled="disabled" />
-      <input :value="value" @input="emitValue($event.target.value)" :placeholder="placeholder" v-if="type === 'text'" id="text" type="text" :disabled="disabled" />
-      <v-icon ref="icon_end_element" class="icon" :icon="iconNameEnd"></v-icon>
+      <input :value="value" @input="emitValue($event.target.value)" :placeholder="placeholder" v-if="type === 'tel'"
+        v-mask="'+7 (###) ###-####'" id="telNum" type="text" :disabled="disabled" />
+      <input :value="value" @input="emitValue($event.target.value)" :placeholder="placeholder" v-if="type === 'pass'"
+        id="password" :type="showPassword ? 'text' : 'password'" :disabled="disabled" />
+      <input :value="value" @input="emitValue($event.target.value)" :placeholder="placeholder" v-if="type === 'text'"
+        id="text" type="text" :disabled="disabled" />
+      <div v-if="type === 'pass'" @click="togglePasswordVisibility">
+        <v-icon ref="icon_end_element" class="icon" :icon="'mdi:' + (showPassword ? 'eye' : 'eye-off')"></v-icon>
+      </div>
+      <v-icon v-else ref="icon_end_element" class="icon" :icon="iconNameEnd"></v-icon>
     </div>
   </div>
 
@@ -23,18 +29,25 @@ export default {
     value: String,
     placeholder: String,
     disabled: Boolean,
+    labelStyles: Object,
   },
   data() {
     return {
       form: {
         telephone: '+7'
       },
-      inputValue: ''
+      inputValue: '',
+      showPassword: false
     }
   },
   methods: {
     emitValue(newVal) {
       this.$emit('input', newVal)
+    },
+    togglePasswordVisibility() {
+      if (this.type === 'pass') {
+        this.showPassword = !this.showPassword;
+      }
     }
   },
   computed: {
@@ -80,7 +93,7 @@ $main-color: #50B053;
     height: 37px;
     display: flex;
     align-items: center;
-    
+
     .icon {
       width: 24px;
       height: 24px;
@@ -96,7 +109,7 @@ $main-color: #50B053;
     }
   }
 
-  label {
+  .input-label-auth {
     font-size: 12px;
     line-height: 18px;
     color: $main-color;

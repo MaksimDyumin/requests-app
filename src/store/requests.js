@@ -59,7 +59,7 @@ export const actions = {
       return true
     } catch (error) {
       console.error(error)
-      this._vm.$toast.error(error.response.data.detail);
+      this._vm.$toast.error(error?.response?.data?.detail);
       return false
     }
   },
@@ -70,7 +70,7 @@ export const actions = {
       
     } catch (error) {
       console.error(error)
-      this._vm.$toast.error(error.response.data.detail);
+      this._vm.$toast.error(error?.response?.data?.detail);
     }
   },
   async getHomesFilter({commit}, params) {
@@ -80,7 +80,7 @@ export const actions = {
       commit('SET_HOMES', response.data)
     } catch (error) {
       console.error(error)
-      this._vm.$toast.error(error.response.data.detail);
+      this._vm.$toast.error(error?.response?.data?.detail);
     }
   },
   async getApartments({commit}, params) {
@@ -92,7 +92,7 @@ export const actions = {
       commit('SET_APARTMENTS', response.data)
     } catch (error) {
       console.error(error)
-      this._vm.$toast.error(error.response.data.detail);
+      this._vm.$toast.error(error?.response?.data?.detail);
     }
   },
   async createRequest({state}, params) {
@@ -102,7 +102,7 @@ export const actions = {
     } catch (error) {
       console.error(error)
       state
-      this._vm.$toast.error(error.response.data.detail);
+      this._vm.$toast.error(error?.response?.data?.detail);
     }
   },
   async setRequest({state},params) {
@@ -112,7 +112,7 @@ export const actions = {
     } catch (error) {
       console.error(error)
       state
-      this._vm.$toast.error(error.response.data.detail);
+      this._vm.$toast.error(error?.response?.data?.detail);
     }
   }
 }

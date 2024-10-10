@@ -6,7 +6,7 @@
       </div>
       <span class="auth-error-label">{{ authError?.response?.data?.detail }}</span>
       <v-input v-model="phone" :type="'tel'" :labelText="'Логин или Телефон'" :iconNameStart="'mdi:phone'" />
-      <v-input v-model="pass" :type="'pass'" :iconNameStart="'mdi:lock'" />
+      <v-input v-model="pass" :type="'pass'" :iconNameStart="'mdi:lock'" :iconNameEnd="'mdi:eye-off'" />
       <v-btn @click="sendForm()" class="send-form-btn">Войти</v-btn>
     </div>
   </div>

@@ -46,10 +46,10 @@
             </div>
 
             <div class="bottom-container">
-              <v-input class="bottom-container-input" labelText="Фамилия" type="text" v-model="form.lastName" />
-              <v-input class="bottom-container-input" labelText="Имя" type="text" v-model="form.firstName" />
-              <v-input class="bottom-container-input" labelText="Отчество" type="text" v-model="form.middleName" />
-              <v-input class="bottom-container-input" labelText="Телефон" type="tel" v-model="form.username" />
+              <v-input class="bottom-container-input" labelText="Фамилия" type="text" :label-styles="{ margin: '0' }" v-model="form.lastName" />
+              <v-input class="bottom-container-input" labelText="Имя" type="text" :label-styles="{ margin: '0' }" v-model="form.firstName" />
+              <v-input class="bottom-container-input" labelText="Отчество" type="text" :label-styles="{ margin: '0' }" v-model="form.middleName" />
+              <v-input class="bottom-container-input" labelText="Телефон" type="tel" :label-styles="{ margin: '0' }" v-model="form.username" />
             </div>
 
             <div class="form-group">

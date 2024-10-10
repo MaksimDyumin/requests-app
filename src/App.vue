@@ -5,21 +5,20 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-
-
 export default {
   computed: {
-    ...mapGetters({
-      requests: 'requests/requests'
-    })
   },
   mounted() {
-    console.log(this.requests)
   }
 }
 </script>
 
 <style scoped>
+#app {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
 @media (min-width: 1024px) {}
 </style>

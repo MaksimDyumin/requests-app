@@ -1,0 +1,28 @@
+@font-face{
+  font-family: 'MontserratRegular';
+  src: url('../fonts/Montserrat-Regular.ttf');
+};
+
+$underline-color: #CCCCCC;
+$main-color: #50B053;
+
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'MontserratRegular';
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
